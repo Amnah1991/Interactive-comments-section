@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: hsl(228, 33%, 97%);
+    border-radius: 6px;
+    height: 100%;
+    width: 70%;
+    text-align: center;
+    color: hsl(211, 10%, 45%);
+}
+
+.plu:hover,
+.minus:hover {
+    color: hsl(238, 40%, 52%);
+    cursor: pointer;
+}
+
+.likes {
+    color: hsl(238, 40%, 52%);
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        flex-direction: row;
+        align-items: center;
+        width: 25%;
+        height: 10%;
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+    }
+}

@@ -1,0 +1,89 @@
+.comment-card-wrapper {
+    background-color: white;
+    padding: 25px;
+    border-radius: 6px;
+    box-shadow: 5px 3px 7px 0px rgba(224, 224, 224, 0.74);
+}
+
+.grid-box {
+    display: grid;
+    min-height: 120px;
+    max-height: auto;
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "col-1 col-2";
+}
+
+.col-1 {
+    grid-area: col-1;
+}
+
+.col-2 {
+    grid-area: col-2;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40px 1fr;
+    grid-template-areas:
+        "row-1"
+        "row-2";
+}
+
+.row-1 {
+    display: flex;
+
+    .user-info {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        column-gap: 15px;
+
+        .user-name {
+            color: hsl(238, 40%, 52%);
+            p {
+                font-weight: 500;
+            }
+        }
+
+        .comment-date {
+            color: hsl(211, 10%, 45%);
+        }
+    }
+    .btn {
+        color: hsl(238, 40%, 52%);
+        p {
+            font-weight: 500;
+        }
+    }
+}
+
+.row-2 {
+    color: hsl(211, 10%, 45%);
+    margin: 15px 0;
+}
+
+.avatar {
+    height: 50px;
+    width: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+    .grid-box {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 40px;
+        grid-template-areas: "col-2" "col-1";
+    }
+
+    .comment-card-wrapper {
+        position: relative;
+    }
+
+    .row-1 {
+        display: block;
+
+        .btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+    }
+}

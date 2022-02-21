@@ -1,0 +1,21 @@
+.main {
+    background-color: hsl(228, 33%, 97%);
+    min-height: 100vh;
+    max-height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.comments-container {
+    width: 70%;
+    padding: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+    .comments-container {
+        width: 90%;
+        padding: 30px;
+    }
+}
