@@ -1,5 +1,10 @@
 <div class="main">
     <div class="comments-container">
-        <comments></comments>
+        <div *ngFor="let comment of comments">
+            <comment [comment]="comment"></comment>
+            <div *ngIf="comment.replies.length > 0">
+                <comment *ngFor="let reply of comment.replies" [comment]="reply" ></comment>
+            </div>
+        </div>
     </div>
 </div>

@@ -4,28 +4,30 @@
     justify-content: space-around;
     background-color: hsl(228, 33%, 97%);
     border-radius: 6px;
-    height: 100%;
-    width: 70%;
+    height: 80px;
+    width: 30px;
+    padding: 5px;
     text-align: center;
     color: hsl(211, 10%, 45%);
 }
 
-.plu:hover,
-.minus:hover {
+.plu,
+.minus{
     color: hsl(238, 40%, 52%);
     cursor: pointer;
 }
 
-.likes {
+.score {
     color: hsl(238, 40%, 52%);
+    font-weight: 500;
 }
 
 @media only screen and (max-width: 600px) {
     .container {
         flex-direction: row;
         align-items: center;
-        width: 25%;
-        height: 10%;
+        width:80px;
+        height:20px;
         position: absolute;
         bottom: 20px;
         left: 20px;

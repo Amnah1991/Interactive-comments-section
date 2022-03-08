@@ -1,25 +1,23 @@
-<div class="comment-card-wrapper">
-    <div class="grid-box">
+<div class="comment-card" [class.reply] ="!comment.replies">
+    <div class="flex-box">
         <div class="col-1">
-            <counter></counter>
+            <counter [score]="comment.score"></counter>
         </div>
 
         <div class="col-2">
             <div class="row-1">
                 <div class="user-info">
                     <div class="user-img">
-                        <img class="avatar" src="../../assets/images/avatars/image-amyrobson.png" alt="user-avatar" />
+                        <img class="avatar" [src]="comment.user.image.png " alt="user-avatar" />
                     </div>
                     <div class="user-name">
-                        <p> amyrobson </p>
+                        <p> {{  comment.user.username }} </p>
                     </div>
                     <div class="comment-date">
-                        <p> 1 month ago </p>
+                        <p> {{  comment.createdAt }}  </p>
                     </div>
-
                 </div>
                 <div class="btn">
-
                     <p>
                         <svg width="14" height="13" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -30,10 +28,7 @@
                     </p>
                 </div>
             </div>
-            <div class="row-2"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also
-                the leap into electronic typesetting, remaining essentially unchanged. </div>
+            <div class="row-2"> {{  comment.content }} </div>
         </div>
     </div>
 </div>
