@@ -8,3 +8,47 @@
     padding: 0;
     margin: 0;
 }
+
+// commen styles
+.comment-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 6px;
+    box-shadow: 5px 3px 7px 0px rgba(224, 224, 224, 0.74);
+    margin: 20px 0;
+    position: relative;
+}
+
+.flex-box {
+    display: flex;
+    gap: 30px;
+}
+
+.avatar {
+    height: 50px;
+    width: 50px;
+}
+
+.input-box {
+    border-radius: 6px;
+    border: 1px solid hsl(223, 19%, 93%);
+    height: 70px;
+    width: 95%;
+    padding: 10px;
+}
+
+.input-box:focus {
+    outline: none !important;
+    border: 1px solid hsl(238, 40%, 52%);
+}
+
+.primary-btn {
+    color: white;
+    font-size: 14px;
+    background-color: hsl(238, 40%, 52%);
+    border-radius: 6px;
+    border: none;
+    box-shadow: none;
+    padding: 10px 20px;
+    align-self: flex-start;
+}

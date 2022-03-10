@@ -15,6 +15,7 @@ export class CounterComponent implements OnInit {
 
   incement(likes: number) {
     this.score++;
+  
   }
 
   decrement(likes: number) {

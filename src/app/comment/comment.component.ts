@@ -1,4 +1,5 @@
-import { Component, OnInit , Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DataService } from '../data.service';
 
 
 @Component({
@@ -9,11 +10,18 @@ import { Component, OnInit , Input } from '@angular/core';
 export class CommentComponent implements OnInit {
 
   @Input() comment: any = {};
+  currentUser: any = {};
 
-  constructor() { 
+
+  constructor(public data: DataService) {
   }
 
   ngOnInit(): void {
+    this.currentUser = this.data.getCurrentUser();
+  }
+
+  replyAtcomment(comment: any): void {
+    console.log(comment);
   }
 
 }

@@ -3,8 +3,9 @@
         <div *ngFor="let comment of comments">
             <comment [comment]="comment"></comment>
             <div *ngIf="comment.replies.length > 0">
-                <comment *ngFor="let reply of comment.replies" [comment]="reply" ></comment>
+                <comment *ngFor="let reply of comment.replies" [comment]="reply"></comment>
             </div>
         </div>
+        <add-new-comment (commentsChangeEvent)="displayComments()"></add-new-comment>
     </div>
 </div>

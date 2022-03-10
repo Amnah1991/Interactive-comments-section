@@ -1,22 +1,10 @@
-.comment-card {
-    background-color: white;
-    padding: 25px;
-    border-radius: 6px;
-    box-shadow: 5px 3px 7px 0px rgba(224, 224, 224, 0.74);
-    margin: 20px 0;
-    position: relative;
-}
 
-.reply{
+.reply {
     width: 90%;
     margin-left: auto;
     margin-right: 0;
 }
 
-.flex-box {
-    display: flex;
-    gap: 30px;
-}
 
 .col-2 {
     display: flex;
@@ -44,10 +32,21 @@
         }
     }
     .btn {
-        color: hsl(238, 40%, 52%);
         position: absolute;
         right: 20px;
-        p {
+        cursor: pointer;
+
+        .action-btns {
+            display: flex;
+            gap: 10px;
+        }
+        .reply-btn,
+        .edit-btn {
+            color: hsl(238, 40%, 52%);
+            font-weight: 500;
+        }
+        .delete-btn {
+            color: hsl(358, 79%, 66%);
             font-weight: 500;
         }
     }
@@ -58,11 +57,11 @@
     margin: 10px 0;
 }
 
-.avatar {
-    height: 50px;
-    width: 50px;
-}
 
+.mention {
+    color: hsl(238, 40%, 52%);
+    font-weight: 500;
+}
 @media only screen and (max-width: 600px) {
     .comment-card {
         padding: 20px;
@@ -79,8 +78,7 @@
         padding-bottom: 30px;
     }
 
-    .reply{
+    .reply {
         width: 80%;
     }
-
 }

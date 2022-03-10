@@ -1,0 +1,12 @@
+<div class="comment-card new-comment">
+    <div class="flex-box">
+        <div class="user-image">
+            <img class="avatar" [src]="currentUser.image.png " alt="user-avatar" />
+        </div>
+        <div class="input-container">
+            <textarea class="input-box" type="text" placeholder="Add a comment..." [(ngModel)]="newComment"></textarea>
+        </div>
+
+        <button class="primary-btn" (click)="addNewComment()"> SEND </button>
+    </div>
+</div>
