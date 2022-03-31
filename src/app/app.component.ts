@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { DataService } from './data.service';
 import data from '../../data.json';
 
@@ -10,8 +10,10 @@ import data from '../../data.json';
 export class AppComponent implements OnInit {
   comments: Array<any> = [];
   title = 'Interactive Comments Section';
+  @Output() index: number;
 
   constructor(public data: DataService) {
+    this.index = 0;
   }
 
   ngOnInit(): void {

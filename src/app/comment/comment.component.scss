@@ -1,14 +1,14 @@
-
 .reply {
     width: 90%;
     margin-left: auto;
     margin-right: 0;
 }
 
-
 .col-2 {
     display: flex;
     flex-direction: column;
+    width: 100%;
+
 }
 
 .row-1 {
@@ -56,7 +56,6 @@
     color: hsl(211, 10%, 45%);
     margin: 10px 0;
 }
-
 
 .mention {
     color: hsl(238, 40%, 52%);
