@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="btn">
-                    <div class="reply-btn" *ngIf="comment.user.username !== currentUser.username"
+                    <div class="reply-btn" *ngIf="comment.user.username !== currentUser.username && !comment.replyingTo"
                         (click)="replyAtcomment(comment)">
                         <svg width="14" height="13" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -65,3 +65,4 @@
         </div>
     </div>
 </div>
+<add-new-comment *ngIf="replyFlag" [replyTo] ="comment.user.username" [commentID] = "comment.id" ></add-new-comment>

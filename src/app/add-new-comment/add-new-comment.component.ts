@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
 
 
@@ -9,11 +9,12 @@ import { DataService } from '../data.service';
 })
 export class AddNewCommentComponent implements OnInit {
 
-  newComment: string = '';
+  content: string = '';
   currentUser: any = {}
   comments: any = [];
 
-  @Output() commentsChangeEvent = new EventEmitter();
+  @Input() replyTo: string = '';
+  @Input() commentID: number = 0;
 
   constructor(public data: DataService) {
   }
@@ -21,10 +22,11 @@ export class AddNewCommentComponent implements OnInit {
   ngOnInit(): void {
     this.currentUser = this.data.getCurrentUser();
     this.comments = this.data.getComments();
-    this.newComment = '';
+    this.content = '';
   }
 
-  addNewComment() {
+
+  addNewComment(): void {
     // calculate the new id 
     let newId = 1;
     for (var el in this.comments) {
@@ -33,23 +35,50 @@ export class AddNewCommentComponent implements OnInit {
         newId += this.comments[el].replies.length
       }
     }
-    let newObj = {
-      id: newId,
-      content: this.newComment,
-      createdAt: "1 sec ago",
-      score: 0,
-      user: {
-        image: {
-          png: this.currentUser.image.png,
-          webp: this.currentUser.image.webp
+    let newComment;
+    if (this.commentID === 0) {
+      newComment = {
+        id: newId,
+        content: this.content,
+        createdAt: "1 sec ago",
+        score: 0,
+        user: {
+          image: {
+            png: this.currentUser.image.png,
+            webp: this.currentUser.image.webp
+          },
+          username: this.currentUser.username
         },
-        username: this.currentUser.username
-      },
-      replies: []
+        replies: []
+      }
+      this.comments.push(newComment);
+
+    } else {
+      for (var el in this.comments) {
+        if (this.comments[el].id === this.commentID) {
+          newComment = {
+            id: newId,
+            content: this.content,
+            createdAt: "1 sec ago",
+            score: 0,
+            user: {
+              image: {
+                png: this.currentUser.image.png,
+                webp: this.currentUser.image.webp
+              },
+              username: this.currentUser.username
+            },
+            replyingTo: this.replyTo,
+          }
+          this.comments[el].replies.push(newComment);
+        }
+      }
     }
-    this.comments.push(newObj)
     this.data.saveState(this.comments);
-    this.commentsChangeEvent.emit(this.data.getComments());
-    this.newComment = '';
+    location.reload();
+    this.content = '';
   }
+
 }
+
+

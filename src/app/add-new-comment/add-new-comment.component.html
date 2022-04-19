@@ -4,9 +4,12 @@
             <img class="avatar" [src]="currentUser.image.png " alt="user-avatar" />
         </div>
         <div class="input-container">
-            <textarea class="input-box" type="text" placeholder="Add a comment..." [(ngModel)]="newComment"></textarea>
+            <textarea *ngIf="!replyTo" class="input-box" type="text" placeholder="Add a comment..."
+                [(ngModel)]="content"></textarea>
+            <textarea *ngIf="replyTo" class="input-box" type="text" placeholder="Reply @{{replyTo}}"
+                [(ngModel)]="content"></textarea>
         </div>
-
-        <button class="primary-btn" (click)="addNewComment()"> SEND </button>
+        <button *ngIf="!replyTo" class="primary-btn" (click)="addNewComment()"> SEND </button>
+        <button *ngIf="replyTo" class="primary-btn"  (click)="addNewComment()"> REPLY </button>
     </div>
 </div>

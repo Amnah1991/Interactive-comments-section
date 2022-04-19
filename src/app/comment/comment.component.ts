@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
 
 
+
 @Component({
   selector: 'comment',
   templateUrl: './comment.component.html',
@@ -13,6 +14,7 @@ export class CommentComponent implements OnInit {
   currentUser: any = {};
   comments: any;
   editFlag: boolean = false;
+  replyFlag: boolean = false;
 
 
   constructor(public data: DataService) {
@@ -24,11 +26,15 @@ export class CommentComponent implements OnInit {
   }
 
   replyAtcomment(comment: any): void {
-    console.log(comment);
+    this.replyFlag = !this.replyFlag;
   }
 
   edit() {
     this.editFlag = true;
+  }
+
+  displayComments() {
+    this.comments = this.data.getComments();
   }
 
   update(updatedComment: any) {

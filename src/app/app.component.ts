@@ -20,7 +20,6 @@ export class AppComponent implements OnInit {
     if (localStorage.length == 0) {
       localStorage.setItem('comments', JSON.stringify(data.comments));
       localStorage.setItem('currentUser', JSON.stringify(data.currentUser));
-      console.log('once');
     }
 
     this.displayComments();
