@@ -25,6 +25,10 @@ export class AppComponent implements OnInit {
     this.displayComments();
   }
 
+  
+ 
+   
+
   displayComments() {
     this.comments = this.data.getComments();
   }

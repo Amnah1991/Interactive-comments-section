@@ -9,6 +9,8 @@ import { CounterComponent } from './counter/counter.component';
 import { AddNewCommentComponent } from './add-new-comment/add-new-comment.component';
 
 import { DataService } from './data.service';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { DeleteMessageComponent } from './delete-message/delete-message.component';
 
 
 @NgModule({
@@ -16,11 +18,13 @@ import { DataService } from './data.service';
     AppComponent,
     CommentComponent,
     CounterComponent,
-    AddNewCommentComponent
+    AddNewCommentComponent,
+    DeleteMessageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    NoopAnimationsModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

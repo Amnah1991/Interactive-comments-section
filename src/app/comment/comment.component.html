@@ -1,7 +1,7 @@
 <div class="comment-card" [class.reply]="!comment.replies">
     <div class="flex-box">
         <div class="col-1">
-            <counter [score]="comment.score"></counter>
+            <counter [score]="comment.score" (change)="scoreChange($event)"></counter>
         </div>
 
         <div class="col-2">
@@ -65,4 +65,4 @@
         </div>
     </div>
 </div>
-<add-new-comment *ngIf="replyFlag" [replyTo] ="comment.user.username" [commentID] = "comment.id" ></add-new-comment>
+<add-new-comment *ngIf="replyFlag" [replyTo]="comment.user.username" [commentID]="comment.id"></add-new-comment>
